@@ -9,7 +9,6 @@ const Header = () => {
                 <Container>
                     <LinkContainer to='/'>
                         <Navbar.Brand>
-                            {/* <img src='assets/images/logo.png' alt='Mekong' /> */}
                             Mekong
                         </Navbar.Brand>
                     </LinkContainer>
@@ -17,12 +16,11 @@ const Header = () => {
                     <Navbar.Toggle aria-controls='basic-navbar-nav' />
                     <Navbar.Collapse id='basic-navbar-nav'>
                         <Nav className='ms-auto'>
-
                             <LinkContainer to='/cart'>
-                                <Nav.Link><FaShoppingCart />Cart</Nav.Link>
+                                <Nav.Link><FaShoppingCart /> Cart</Nav.Link>
                             </LinkContainer>
                             <LinkContainer to='/login'>
-                                <Nav.Link><FaUser />Sign In</Nav.Link>
+                                <Nav.Link><FaUser /> Sign In</Nav.Link>
                             </LinkContainer>
                         </Nav>
 
