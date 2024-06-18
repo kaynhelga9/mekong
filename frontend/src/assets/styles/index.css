@@ -183,3 +183,20 @@ div.card-stock.card {
 	text-align: right;
 	align-items: center;
 }
+
+#form-qty {
+	padding: 0;
+	text-align: justify;
+}
+
+span.badge{
+	margin-left: 10px;
+}
+
+#checkout-btn {
+	align-self: center;
+}
+
+#checkout-group {
+	align-items: center;
+}
