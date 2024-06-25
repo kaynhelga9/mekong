@@ -78,7 +78,7 @@ const ProductScreen = () => {
 									<ListGroup.Item>
 										<strong>
 											{product.stock > 0
-												? "In Stock"
+												? `In Stock: ${product.stock}`
 												: "Out Of Stock"}
 										</strong>
 									</ListGroup.Item>

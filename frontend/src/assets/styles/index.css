@@ -200,3 +200,7 @@ span.badge{
 #checkout-group {
 	align-items: center;
 }
+
+a.dropdown-item {
+	text-align: center;
+}
