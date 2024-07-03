@@ -3,6 +3,7 @@ import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutMutation } from "../slices/usersApiSlice";
+import { clearCartItems } from "../slices/cartSlice";
 import { logout } from "../slices/authSlice";
 
 const Header = () => {
@@ -18,6 +19,7 @@ const Header = () => {
 		try {
 			await logoutApiCall().unwrap();
 			dispatch(logout());
+			dispatch(clearCartItems());
 			navigate("/login");
 		} catch (err) {
 			console.log(err);
@@ -44,7 +46,7 @@ const Header = () => {
 							<Nav.Link as={Link} to="/cart">
 								<FaShoppingCart /> Cart
 								{cartItems.length > 0 && (
-									<Badge pil bg="danger">
+									<Badge pill>
 										{cartItems.reduce(
 											(acc, item) => acc + item.qty,
 											0
@@ -59,11 +61,9 @@ const Header = () => {
 									id="username"
 									align="end"
 								>
-									<Nav.Link as={Link} to="/profile">
-										<NavDropdown.Item>
-											Profile
-										</NavDropdown.Item>
-									</Nav.Link>
+									<NavDropdown.Item as={Link} to="/profile">
+										Profile
+									</NavDropdown.Item>
 
 									<NavDropdown.Item onClick={logoutHandler}>
 										Logout

@@ -20,6 +20,10 @@ const CartScreen = () => {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
 
+	const returnHandler = () => {
+		navigate("/");
+	}
+
     const addToCartHandler = async (product, qty) => {
         dispatch(setCart({...product, qty}));
     }
@@ -37,9 +41,17 @@ const CartScreen = () => {
 			<Col md={8}>
 				<h1>Your Cart</h1>
 				{cartItems.length === 0 ? (
-					<Message>
-						Your cart is empty. <Link to="/">Go Back</Link>
-					</Message>
+					<Col>
+						<Message>
+							No items in cart
+						</Message>
+						<Button 
+							type="button"
+							onClick={returnHandler}
+							>
+							Back
+						</Button>
+					</Col>
 				) : (
 					<ListGroup variant="flush">
 						{cartItems.map((item) => (
