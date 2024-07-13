@@ -2,14 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import {
-	Row,
-	Col,
-	Image,
-	ListGroup,
-	Card,
-	Button,
-} from "react-bootstrap";
+import { Row, Col, Image, ListGroup, Card, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import Rating from "../components/Rating";
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
@@ -32,9 +25,9 @@ const ProductScreen = () => {
 	} = useGetProductDetailsQuery(productId);
 
 	const addToCartHandler = () => {
-		dispatch(addToCart({...product, qty}));
+		dispatch(addToCart({ ...product, qty }));
 		navigate("/cart");
-	}
+	};
 
 	return (
 		<>
@@ -46,14 +39,17 @@ const ProductScreen = () => {
 				</Message>
 			) : (
 				<>
-					<Link className="btn btn-light my-3">Back</Link>
+					<Link to={"/"}>
+						<Button>Back</Button>
+					</Link>
 
-					<Row>
+					<Row className="my-3">
 						<Col md={5}>
-							<Image
+							<Image 
 								src={product.image}
 								alt={product.name}
 								fluid
+								thumbnail
 							/>
 						</Col>
 
@@ -89,11 +85,34 @@ const ProductScreen = () => {
 												<Col id="form-qty">Qty</Col>
 												<Col>
 													<Form.Control
-														className="form-control" as="select" value={qty}
-														onChange={(e) => setQty(Number(e.target.value))}>
-													{[...Array(product.stock).keys()].map((x) => {
-														return <option key={x + 1} value={x + 1}>{x+1}</option>
-													})}
+														className="form-control"
+														as="select"
+														value={qty}
+														onChange={(e) =>
+															setQty(
+																Number(
+																	e.target
+																		.value
+																)
+															)
+														}
+													>
+														{[
+															...Array(
+																product.stock
+															).keys(),
+														].map((x) => {
+															return (
+																<option
+																	key={x + 1}
+																	value={
+																		x + 1
+																	}
+																>
+																	{x + 1}
+																</option>
+															);
+														})}
 													</Form.Control>
 												</Col>
 											</Row>

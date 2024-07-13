@@ -203,4 +203,10 @@ span.badge{
 
 a.dropdown-item {
 	text-align: center;
+	max-width: min-content;
+}
+
+div.dropdown-menu {
+	min-width: 0;
+	max-width: fit-content;
 }
