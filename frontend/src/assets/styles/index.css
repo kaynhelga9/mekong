@@ -189,7 +189,7 @@ div.card-stock.card {
 	text-align: justify;
 }
 
-span.badge{
+span.badge {
 	margin-left: 10px;
 }
 
@@ -209,4 +209,13 @@ a.dropdown-item {
 div.dropdown-menu {
 	min-width: 0;
 	max-width: fit-content;
+}
+
+.carousel-caption {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgb(0, 0, 0.5);
 }

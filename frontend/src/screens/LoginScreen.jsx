@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import Meta from "../components/Meta";
 
 const LoginScreen = () => {
 	const [email, setEmail] = useState("");
@@ -31,17 +32,19 @@ const LoginScreen = () => {
 
 	const submitHandler = async (e) => {
 		e.preventDefault();
-		
-        try {
-            const res = await login({ email, password }).unwrap();
-            dispatch(setCredentials({...res, }));
-        } catch (err) {
-            toast.error(err?.data?.message || err.error)
-        }
+
+		try {
+			const res = await login({ email, password }).unwrap();
+			dispatch(setCredentials({ ...res }));
+		} catch (err) {
+			toast.error(err?.data?.message || err.error);
+		}
 	};
 
 	return (
 		<FormContainer>
+			<Meta title={"Mekong | Login"} />
+
 			<h1>Sign In</h1>
 			<Form onSubmit={submitHandler}>
 				<Form.Group controlId="email" className="my-3">
@@ -64,16 +67,29 @@ const LoginScreen = () => {
 					/>
 				</Form.Group>
 
-				<Button type="submit" variant="primary" className="mt-2" disabled={ isLoading }>
+				<Button
+					type="submit"
+					variant="primary"
+					className="mt-2"
+					disabled={isLoading}
+				>
 					Sign In
 				</Button>
 
-                { isLoading && <Loader /> }
+				{isLoading && <Loader />}
 			</Form>
 
 			<Row className="py-3 justify-content-md-center">
 				<Col>
-					<Link to={ redirect? `/register?redirect=${redirect}` : "/register"}>Create an account</Link>
+					<Link
+						to={
+							redirect
+								? `/register?redirect=${redirect}`
+								: "/register"
+						}
+					>
+						Create an account
+					</Link>
 				</Col>
 			</Row>
 		</FormContainer>

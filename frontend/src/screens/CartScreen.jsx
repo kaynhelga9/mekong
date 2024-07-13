@@ -12,6 +12,7 @@ import {
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
 import { setCart, removeFromCart } from "../slices/cartSlice" 
+import Meta from "../components/Meta";
 
 const CartScreen = () => {
 	const navigate = useNavigate();
@@ -38,6 +39,8 @@ const CartScreen = () => {
 
 	return (
 		<Row>
+			<Meta title={"Mekong | Cart"}/>
+
 			<Col md={8}>
 				<h1>Your Cart</h1>
 				{cartItems.length === 0 ? (
@@ -100,7 +103,7 @@ const CartScreen = () => {
 									<Col md={2}>
 										<Button
 											type="button"
-											variant="light"
+											variant="danger"
 											onClick={() =>
 												removeFromCartHandler(item._id)
 											}

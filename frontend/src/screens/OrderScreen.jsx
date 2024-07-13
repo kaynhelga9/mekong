@@ -12,6 +12,7 @@ import {
 	useGetPayPalClientIdQuery,
 	useDeliverOrderMutation,
 } from "../slices/ordersApiSlice";
+import Meta from "../components/Meta";
 
 const OrderScreen = () => {
 	const navigate = useNavigate();
@@ -71,11 +72,11 @@ const OrderScreen = () => {
 		}
 	}, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal]);
 
-	async function onApproveTest() {
-		await payOrder({ orderId, details: { payer: {} } });
-		refetch();
-		toast.success("Payment Successfull");
-	}
+	// async function onApproveTest() {
+	// 	await payOrder({ orderId, details: { payer: {} } });
+	// 	refetch();
+	// 	toast.success("Payment Successfull");
+	// }
 
 	function createOrder(data, actions) {
 		return actions.order
@@ -125,6 +126,8 @@ const OrderScreen = () => {
 		<Message variant="danger" />
 	) : (
 		<>
+			<Meta title={"Mekong | Order"} />
+
 			<h1>Order {order._id}</h1>
 			<Row>
 				<Col md={8}>
@@ -241,9 +244,9 @@ const OrderScreen = () => {
 										<Loader />
 									) : (
 										<div>
-											<Button onClick={onApproveTest}>
+											{/* <Button onClick={onApproveTest}>
 												Test Pay Order
-											</Button>
+											</Button> */}
 											<PayPalButtons
 												createOrder={createOrder}
 												onApprove={onApprove}

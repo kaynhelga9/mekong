@@ -1,6 +1,6 @@
 import mongoose, { mongo } from "mongoose";
 
-const reviewSchema = new mongoose.Schema(
+const reviewSchema = mongoose.Schema(
 	{
 		name: {
 			type: String,
@@ -20,11 +20,6 @@ const reviewSchema = new mongoose.Schema(
 			type: mongoose.Schema.Types.ObjectId,
 			required: true,
 			ref: "User",
-		},
-		product: {
-			type: mongoose.Schema.Types.ObjectId,
-			required: true,
-			ref: "Product",
 		},
 		createdAt: {
 			type: Date,
