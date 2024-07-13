@@ -1,8 +1,16 @@
 # Mekong App
 
+![preview1](preview/preview1.png)
+
+![preview1](preview/preview2.png)
 
 
 E-commerce webapp project built with the MERN stack
+- MongoDB
+- Express JS
+- React + Redux Tlk
+- Node JS
+- Plues other relevant packages
 
 ## Features
 
