@@ -23,11 +23,6 @@ E-commerce webapp project built with the MERN stack
 - **Admin Dashboard:** Manage products, categories, users, and orders from an admin interface.
 - **Responsive Design:** Optimized for both desktop and mobile devices.
 
-## Usage
-
-- Clone this repository
-- Run `npm run dev` to start the backend and frontend servers
-
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
