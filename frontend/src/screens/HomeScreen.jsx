@@ -18,7 +18,7 @@ const HomeScreen = () => {
 
 	return (
 		<>
-			<Meta title={"Mekong | Home"}/>
+			<Meta title={"Mekong | Home"} />
 
 			{!keyword ? (
 				<ProductCarousel />
