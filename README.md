@@ -7,10 +7,10 @@
 
 E-commerce webapp project built with the MERN stack
 - MongoDB
-- Express JS
-- React + Redux Tlk
-- Node JS
-- Plues other relevant packages
+- Express 
+- React + Redux Toolkit
+- Node 
+- Plus relevant packages
 
 ## Features
 
